@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>eu.indenica</groupId>
+	<artifactId>Repository</artifactId>
+	<packaging>jar</packaging>
+	<version>1-SNAPSHOT</version>
+	<name>IndenicaRepository</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>at.ac.tuwien.infosys</groupId>
+			<artifactId>InfosysTools</artifactId>
+			<version>1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jclouds.api</groupId>
+			<artifactId>chef</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jclouds.labs</groupId>
+			<artifactId>hostedchef</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0.1</version>
+		</dependency>
+	</dependencies>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>maven-repo</id>
+			<name>maven-repo</name>
+			<url>http://repo2.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>infosys-repo</id>
+			<url>http://www.infosys.tuwien.ac.at/mvn/</url>
+		</repository>
+	</repositories>
+
+</project>
