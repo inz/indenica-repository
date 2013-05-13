@@ -38,6 +38,9 @@ public class PluginChef implements IPlugin {
 			if(pemFile == null) {
 				throw new Exception("Please provide chef.user.pem in config.properties file.");
 			}
+			if(client == null) {
+				throw new Exception("Please provide chef.user.name in config.properties file.");
+			}
 			System.out.println("Using pem file " + pemFile);
 			String credential = Files.toString(new File(pemFile), Charsets.UTF_8);
 

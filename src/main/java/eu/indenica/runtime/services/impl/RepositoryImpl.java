@@ -19,19 +19,16 @@ public class RepositoryImpl extends AbstractNode implements IRepository {
 	private PluginChain plugins = new PluginChain();
 	private static Util util = new Util();
 
-	@Override
 	public Data getData(Filter filter) {
 		System.out.println("get: " + filter);
 		return plugins.getData(filter);
 	}
 
-	@Override
 	public void subscribeToData(Filter filter, EndpointReference epr) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void publishData(Data data) {
 		System.out.println("publish: " + data);
 		plugins.storeData(data);
