@@ -16,12 +16,14 @@ public class PluginChain {
 
 	public PluginChain() {
 		// TODO search for all plugins in classpath
-		plugins.add(new PluginChef());
+	    plugins.add(new PluginChef());
+		plugins.add(new PluginFilesystem());
 	}
 
 	public Data getData(Filter f) {
 		for(IPlugin p : plugins) {
 			if(p.canHandle(f)) {
+			    LOG.debug("Getting data using plugin {}", p);
 				return p.getData(f);
 			}
 		}
