@@ -44,15 +44,23 @@ public class RepositoryImpl extends AbstractNode implements IRepository {
 		URL wsdl = new URL(url + "?wsdl");
 		IRepository client = DynamicWSClient.createClientJaxws(IRepository.class, wsdl);
 
-		Filter f = new Filter();
-		f.value = util.xml.toElement("<infrastructure><query>node=foo</query></infrastructure>");
-		client.subscribeToData(f, NotificationReceiverService.DEFAULT_ENDPOINT);
+		Filter f1 = new Filter();
+		f1.value = util.xml.toElement("<infrastructure><query>node=foo</query></infrastructure>");
+		client.subscribeToData(f1, NotificationReceiverService.DEFAULT_ENDPOINT);
+		Filter f2 = new Filter();
+		f2.value = util.xml.toElement("<mongodb><query>{node:{foo:'abc'}}</query></mongodb>");
+		client.subscribeToData(f2, NotificationReceiverService.DEFAULT_ENDPOINT);
 
 		Data d = new Data();
 		d.value = util.xml.toElement("<infrastructure><node>foo</node></infrastructure>");
 		client.publishData(d);
-		Data d1 = client.getData(f);
-		System.out.println(d1.value);
+		Data d1 = new Data();
+		d1.value = util.xml.toElement("<mongodb><node><foo>abc</foo><bar>123</bar></node></mongodb>");
+		client.publishData(d1);
+		Data r1 = client.getData(f1);
+		System.out.println(r1.value);
+		Data r2 = client.getData(f2);
+		System.out.println(r2.value);
 
 	}
 
