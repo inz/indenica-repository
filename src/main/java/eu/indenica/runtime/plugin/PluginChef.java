@@ -24,10 +24,9 @@ import eu.indenica.runtime.dto.Filter;
 public class PluginChef implements IPlugin {
     private static final Logger LOG = LoggerFactory.getLogger(PluginChef.class);
 
-	public static Util util = new Util();
+	public static Util util = Util.getInstance();
 	
 	public boolean canHandle(Filter f) {
-		//System.out.println(f.value);
 		return (f.value instanceof Element) && 
 				((Element)f.value).getNodeName().equals(
 						Constants.DATA_INFRASTRUCTURE);
@@ -44,7 +43,7 @@ public class PluginChef implements IPlugin {
 			if(client == null) {
 				throw new Exception("Please provide chef.user.name in config.properties file.");
 			}
-			System.out.println("Using pem file " + pemFile);
+			LOG.debug("Using pem file {}", pemFile);
 			String credential = Files.toString(new File(pemFile), Charsets.UTF_8);
 
 			ChefContext context = ContextBuilder.newBuilder("hostedchef").
