@@ -7,6 +7,8 @@ import java.util.Set;
 import org.jclouds.ContextBuilder;
 import org.jclouds.chef.ChefContext;
 import org.jclouds.hostedchef.HostedChefApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 
 import at.ac.tuwien.infosys.util.Configuration;
@@ -20,6 +22,7 @@ import eu.indenica.runtime.dto.Data;
 import eu.indenica.runtime.dto.Filter;
 
 public class PluginChef implements IPlugin {
+    private static final Logger LOG = LoggerFactory.getLogger(PluginChef.class);
 
 	public static Util util = new Util();
 	
