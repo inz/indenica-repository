@@ -18,6 +18,7 @@ public class PluginChain {
 		// TODO search for all plugins in classpath
 	    plugins.add(new PluginChef());
 		plugins.add(new PluginFilesystem());
+		plugins.add(new PluginMongoDB("127.0.0.1"));
 	}
 
 	public Data getData(Filter f) {
